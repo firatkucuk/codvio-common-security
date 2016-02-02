@@ -6,7 +6,7 @@ import io.codv.springwind.singleton.InMemoryTokenDbSingleton;
 
 
 
-public class InMemoryAuthenticationServiceImpl implements AuthenticationService {
+public abstract class InMemoryAuthenticationService implements AuthenticationService {
 
 
 
