@@ -1,3 +1,4 @@
+
 package io.codv.springwind.service;
 
 import io.codv.springwind.dto.vo.AuthenticatedUserInfo;
@@ -21,6 +22,16 @@ public class InMemoryAuthenticationServiceImpl implements AuthenticationService 
     public void cleanExpiredSessions() {
 
         tokenDbSingleton.deleteExpiredTokens();
+    }
+
+
+
+    //~ ----------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public String createSession(final AuthenticatedUserInfo userInfo) {
+
+        return tokenDbSingleton.createNewToken(userInfo);
     }
 
 

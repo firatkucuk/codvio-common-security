@@ -17,5 +17,11 @@ public interface AuthenticationService {
 
     //~ ----------------------------------------------------------------------------------------------------------------
 
+    String createSession(AuthenticatedUserInfo userInfo);
+
+
+
+    //~ ----------------------------------------------------------------------------------------------------------------
+
     AuthenticatedUserInfo findByToken(String token);
 }
