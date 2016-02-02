@@ -19,6 +19,10 @@ import java.io.IOException;
 
 
 
+/**
+ * This filter looks up the request headers for "Authentication" header and matches the fetched token via using given
+ * authentication method.
+ */
 public class RestAuthenticationFilter extends GenericFilterBean {
 
 
@@ -66,8 +70,7 @@ public class RestAuthenticationFilter extends GenericFilterBean {
             final Authentication authResult = authenticationManager.authenticate(authenticationToken);
 
             if (authResult != null) {
-                SecurityContextHolder.getContext()
-                                     .setAuthentication(authResult);
+                SecurityContextHolder.getContext().setAuthentication(authResult);
 
                 LOG.trace("Authentication result added to security context holder.");
             } else {
