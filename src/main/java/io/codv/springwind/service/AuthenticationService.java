@@ -24,4 +24,10 @@ public interface AuthenticationService {
     //~ ----------------------------------------------------------------------------------------------------------------
 
     AuthenticatedUserInfo findByToken(String token);
+
+
+
+    //~ ----------------------------------------------------------------------------------------------------------------
+
+    void updateSession(String token, AuthenticatedUserInfo userInfo);
 }

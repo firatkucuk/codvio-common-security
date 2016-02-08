@@ -43,4 +43,14 @@ public abstract class InMemoryAuthenticationService implements AuthenticationSer
 
         return tokenDbSingleton.findUser(token);
     }
+
+
+
+    //~ ----------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public void updateSession(final String token, final AuthenticatedUserInfo userInfo) {
+
+        tokenDbSingleton.updateSession(token, userInfo);
+    }
 }

@@ -115,6 +115,23 @@ public class InMemoryTokenDbSingleton {
 
 
 
+    //~ ----------------------------------------------------------------------------------------------------------------
+
+    public void updateSession(final String token, final AuthenticatedUserInfo userInfo) {
+
+        if (tokenDb.containsKey(token)) {
+            final Calendar now = Calendar.getInstance();
+
+            final SessionInfo sessionInfo = new SessionInfo();
+            sessionInfo.setLastActionTime(now.getTimeInMillis());
+            sessionInfo.setUserInfo(userInfo);
+
+            this.tokenDb.put(token, sessionInfo);
+        }
+    }
+
+
+
     //~ --- [INNER CLASSES] --------------------------------------------------------------------------------------------
 
     private class SessionInfo {
