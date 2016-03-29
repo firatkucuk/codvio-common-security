@@ -1,8 +1,8 @@
 
-package io.codv.springwind.singleton;
+package com.codvio.security.singleton;
 
 
-import io.codv.springwind.dto.vo.AuthenticatedUserInfo;
+import com.codvio.security.dto.vo.AuthenticatedUserInfo;
 import java.util.*;
 
 
@@ -13,8 +13,7 @@ public class InMemoryTokenDbSingleton {
 
     //~ --- [STATIC FIELDS/INITIALIZERS] -------------------------------------------------------------------------------
 
-    public static final int                 SESSION_TIMEOUT = 900_000; // 15 Minutes
-    private static InMemoryTokenDbSingleton instance        = new InMemoryTokenDbSingleton();
+    private static InMemoryTokenDbSingleton instance = new InMemoryTokenDbSingleton();
 
 
 
@@ -62,7 +61,7 @@ public class InMemoryTokenDbSingleton {
 
     //~ ----------------------------------------------------------------------------------------------------------------
 
-    public void deleteExpiredTokens() {
+    public void deleteExpiredTokens(final int timeout) {
 
         final Calendar                                 now      = Calendar.getInstance();
         final Iterator<Map.Entry<String, SessionInfo>> iterator = tokenDb.entrySet().iterator();
@@ -71,7 +70,7 @@ public class InMemoryTokenDbSingleton {
             final Map.Entry<String, SessionInfo> entry        = iterator.next();
             final long                           creationTime = entry.getValue().lastActionTime;
 
-            if (now.getTimeInMillis() - creationTime > SESSION_TIMEOUT) {
+            if (now.getTimeInMillis() - creationTime > timeout) {
                 iterator.remove();
             }
         }

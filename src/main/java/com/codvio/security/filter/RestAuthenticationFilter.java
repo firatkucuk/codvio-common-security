@@ -1,8 +1,8 @@
 
-package io.codv.springwind.filter;
+package com.codvio.security.filter;
 
 
-import io.codv.springwind.security.StatelessAuthenticationToken;
+import com.codvio.security.security.StatelessAuthenticationToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,7 +1,7 @@
 
-package io.codv.springwind.service;
+package com.codvio.security.service;
 
-import io.codv.springwind.dto.vo.AuthenticatedUserInfo;
+import com.codvio.security.dto.vo.AuthenticatedUserInfo;
 
 
 
@@ -11,7 +11,7 @@ public interface AuthenticationService {
 
     //~ --- [METHODS] --------------------------------------------------------------------------------------------------
 
-    void cleanExpiredSessions();
+    void cleanExpiredSessions(int timeout);
 
 
 

@@ -1,8 +1,8 @@
 
-package io.codv.springwind.service;
+package com.codvio.security.service;
 
-import io.codv.springwind.dto.vo.AuthenticatedUserInfo;
-import io.codv.springwind.singleton.InMemoryTokenDbSingleton;
+import com.codvio.security.dto.vo.AuthenticatedUserInfo;
+import com.codvio.security.singleton.InMemoryTokenDbSingleton;
 
 
 
@@ -19,9 +19,9 @@ public abstract class InMemoryAuthenticationService implements AuthenticationSer
     //~ --- [METHODS] --------------------------------------------------------------------------------------------------
 
     @Override
-    public void cleanExpiredSessions() {
+    public void cleanExpiredSessions(final int timeout) {
 
-        tokenDbSingleton.deleteExpiredTokens();
+        tokenDbSingleton.deleteExpiredTokens(timeout);
     }
 
 

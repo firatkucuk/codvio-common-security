@@ -1,5 +1,5 @@
 
-package io.codv.springwind.dto.vo;
+package com.codvio.security.dto.vo;
 
 import java.io.Serializable;
 

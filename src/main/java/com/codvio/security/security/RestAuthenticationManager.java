@@ -1,7 +1,7 @@
-package io.codv.springwind.security;
+package com.codvio.security.security;
 
-import io.codv.springwind.dto.vo.AuthenticatedUserInfo;
-import io.codv.springwind.service.AuthenticationService;
+import com.codvio.security.dto.vo.AuthenticatedUserInfo;
+import com.codvio.security.service.AuthenticationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -41,9 +41,6 @@ public class RestAuthenticationManager implements AuthenticationManager {
     public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
 
         LOG.debug("Authenticating credentials ...");
-        LOG.trace("cleaning expired sessions ...");
-
-        authenticationService.cleanExpiredSessions();
 
         final StatelessAuthenticationToken authenticationToken = (StatelessAuthenticationToken) authentication;
         final String                       token               = authenticationToken.getToken();

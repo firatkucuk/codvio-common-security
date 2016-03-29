@@ -1,8 +1,8 @@
 
-package io.codv.springwind.security;
+package com.codvio.security.security;
 
 
-import io.codv.springwind.dto.vo.AuthenticatedUserInfo;
+import com.codvio.security.dto.vo.AuthenticatedUserInfo;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import java.util.Collection;
