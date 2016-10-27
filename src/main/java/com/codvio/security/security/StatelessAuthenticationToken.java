@@ -56,6 +56,8 @@ public class StatelessAuthenticationToken implements Authentication {
                 for (final String role : roles) {
                     authorities.add((GrantedAuthority) () -> role);
                 }
+
+                return authorities;
             }
         }
 
