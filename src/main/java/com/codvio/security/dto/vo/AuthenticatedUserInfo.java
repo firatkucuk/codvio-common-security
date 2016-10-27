@@ -2,6 +2,7 @@
 package com.codvio.security.dto.vo;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 
@@ -28,4 +29,15 @@ public interface AuthenticatedUserInfo extends Serializable {
      * @return  unique principal
      */
     String getPrincipal();
+
+
+
+    //~ ----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns role names of the authenticated users
+     *
+     * @return  role names
+     */
+    List<String> getRoles();
 }

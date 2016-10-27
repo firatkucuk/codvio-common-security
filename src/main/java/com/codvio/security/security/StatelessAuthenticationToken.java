@@ -5,7 +5,9 @@ package com.codvio.security.security;
 import com.codvio.security.dto.vo.AuthenticatedUserInfo;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 
@@ -45,6 +47,18 @@ public class StatelessAuthenticationToken implements Authentication {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
+        if (authenticatedUserInfo != null) {
+            final List<String> roles = authenticatedUserInfo.getRoles();
+
+            if (roles != null && !roles.isEmpty()) {
+                final ArrayList<GrantedAuthority> authorities = new ArrayList<>();
+
+                for (final String role : roles) {
+                    authorities.add((GrantedAuthority) () -> role);
+                }
+            }
+        }
+
         return null;
     }
 
@@ -65,7 +79,7 @@ public class StatelessAuthenticationToken implements Authentication {
     @Override
     public Object getDetails() {
 
-        return null;
+        return authenticatedUserInfo;
     }
 
 
